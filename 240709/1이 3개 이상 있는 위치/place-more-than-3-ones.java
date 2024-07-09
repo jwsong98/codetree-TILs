@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) throws Exception{
         int N = Integer.parseInt(br.readLine());
         int ans = 0;
-        int [][] map = new int[4][4];
+        int [][] map = new int[N][N];
 
         for (int i = 0 ; i < N ; i++) {
             StringTokenizer rowsNum = new StringTokenizer(br.readLine());
