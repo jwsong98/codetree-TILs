@@ -22,8 +22,8 @@ public class Main {
         }
 
         for (int r = 0 ; r < N - 2; r++) {
-            for (int c = 0, count = 0 ; c < N - 2 ; c++) {
-                
+            for (int c = 0 ; c < N - 2 ; c++) {
+                int count = 0;
                 for (int i = 0 ; i < 9 ; i++) {
                     if (map[r + dr[i]][c + dc[i]] == 1) {
                         count += 1;
