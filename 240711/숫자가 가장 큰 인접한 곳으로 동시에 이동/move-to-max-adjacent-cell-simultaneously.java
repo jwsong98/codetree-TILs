@@ -55,11 +55,9 @@ public class Main {
                     if (nr < 0 || nr >= N || nc < 0 || nc >= N ) {
                         continue;
                     }
-                    if (map[pos.r][pos.c] < map[nr][nc]) {
-                        if (maxV < map[nr][nc]) {
-                            maxV = map[nr][nc];
-                            nd = d;                            
-                        }
+                    if (maxV < map[nr][nc]) {
+                        maxV = map[nr][nc];
+                        nd = d;                            
                     }
                 }
                 if (nd != -1) {
