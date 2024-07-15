@@ -32,8 +32,8 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
         StringTokenizer NK = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(NK.nextToken());
         K = Integer.parseInt(NK.nextToken());
+        N = Integer.parseInt(NK.nextToken());
         int [] ans = new int [N];
         fill(ans, 0);
         bw.write(sb.toString());
