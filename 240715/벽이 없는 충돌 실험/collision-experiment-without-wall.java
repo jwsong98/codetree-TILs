@@ -5,23 +5,31 @@ public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static StringBuilder sb = new StringBuilder();
-    static int [] dx = {+1, 0, -1, 0};
-    static int [] dy = {0, +1, 0, -1};
+    static double [] dx = {+1, 0, -1, 0};
+    static double [] dy = {0, +1, 0, -1};
 
     static class Pos {
-        int x;
-        int y;
-        Pos(int x, int y) {
+        double x;
+        double y;
+        Pos(double x, double y) {
             this.x = x;
             this.y = y;
         }
         void move(int d) {
-            x = x + dx[d];
-            y = y + dy[d];
+            x = x + dx[d] * 0.5;
+            y = y + dy[d] * 0.5;
         }
         @Override
         public int hashCode() {
-            return this.x * 3 + this.y * 2;
+            return (int)Math.floor(this.x * 2000.0 + this.y * 2.0);
+        }
+        @Override
+        public boolean equals(Object o) {
+            Pos p = (Pos)o;
+            return (p.x == x && p.y == y);
+        }
+        boolean isOut() {
+            return (this.x < -1000 || this.x > 1000 || this.y < -1000 || this.y > 1000);
         }
     }
 
@@ -60,6 +68,7 @@ public class Main {
         int T = Integer.parseInt(br.readLine());
         for (int t = 0 ; t < T ; t++) {
             int timer = 0;
+            int lastCollision = -1;
             int N = Integer.parseInt(br.readLine());
             Queue<Node> q = new ArrayDeque<>();
 
@@ -69,12 +78,11 @@ public class Main {
                 int y = Integer.parseInt(tkn.nextToken());
                 int w = Integer.parseInt(tkn.nextToken());
                 int d = dMap.get(tkn.nextToken());
-
+                
                 q.offer(new Node(x, y, w, d, i));
             }
 
             int size = q.size();
-            int lastCollision = -1;
             while (size != 0) {
                 Map<Pos, Node> mapper = new HashMap<>();
 
@@ -83,21 +91,28 @@ public class Main {
                     Node node = q.poll();
                     node.move();
 
+                    if (node.pos.isOut()) {
+                        continue;
+                    }
                     Node old = mapper.get(node.pos);
                     if (old == null) {
                         mapper.put(node.pos, node);
                     }
-                    else if (Node.bigger(old, node) == node) {
-                        mapper.replace(node.pos, node);
+                    else {
+                        Node bigger = Node.bigger(node, old);
+                        mapper.replace(node.pos, bigger);
                         lastCollision = timer;
                     }
                 }
-                for (Iterator<Map.Entry<Pos, Node>> iter = mapper.iterator(); mapper.hasNext();) {
-                    Map.Entry<Pos, Node> node = iter.next();
-                    q.offer(node.getValue());
+                Collection<Node> vSet = mapper.values();
+                for (Iterator<Node> iter = vSet.iterator(); iter.hasNext();) {
+                    Node node = iter.next();
+                    q.offer(node);
                 }
                 size = q.size();
             }
+            sb.append(lastCollision);
+            sb.append("\n");
         }
         bw.write(sb.toString());
         bw.flush();
