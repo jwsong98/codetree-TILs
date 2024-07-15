@@ -8,7 +8,7 @@ public class Main {
     static double [] dx = {+1, 0, -1, 0};
     static double [] dy = {0, +1, 0, -1};
 
-    static class Pos {
+    static class Pos implements Comparable<Pos>{
         double x;
         double y;
         Pos(double x, double y) {
@@ -27,6 +27,14 @@ public class Main {
         public boolean equals(Object o) {
             Pos p = (Pos)o;
             return (p.x == x && p.y == y);
+        }
+        @Override
+        public int compareTo(Pos p) {
+            if (p.x > x) return 1;
+            if (p.x < x) return -1;
+            if (p.y > y) return 1;
+            if (p.y < y) return -1;
+            return 0;
         }
         boolean isOut() {
             return (this.x < -1000 || this.x > 1000 || this.y < -1000 || this.y > 1000);
