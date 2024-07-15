@@ -84,7 +84,7 @@ public class Main {
 
             int size = q.size();
             while (size != 0) {
-                Map<Pos, Node> mapper = new HashMap<>();
+                Map<Pos, Node> mapper = new TreeMap<>();
 
                 timer += 1;
                 for (int i = 0 ; i < size; i++) {
