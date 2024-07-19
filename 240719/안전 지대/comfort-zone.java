@@ -22,7 +22,7 @@ public class Main {
     static final int[] dc = {0, +1, 0, -1};
 
     static boolean isValid(int r, int c, int k, int [][] map, boolean [][] visited) {
-        return (0 <= r && r < N && 0 <= c && c < N && !visited[r][c] && map[r][c] > k);
+        return (0 <= r && r < N && 0 <= c && c < M && !visited[r][c] && map[r][c] > k);
     }
 
     static void dfs(int r, int c, int k, int[][] map, boolean [][] visited) {
@@ -52,21 +52,22 @@ public class Main {
     
         int answer = -1, minK = 100;
         for (int k = 1 ; k <= 100; k++ ) {
-            boolean [][] visited = new boolean[N][N];
             int count = 0;
+            boolean [][] visited = new boolean[N][M];
             for (int sr = 0 ; sr < N ; sr++) {
-                for (int sc = 0; sc < N ; sc++) {
+                for (int sc = 0; sc < M ; sc++) {
                     if (visited[sr][sc] || map[sr][sc] <= k) continue;
-                    System.out.printf("%d %d, visited: %b\n", sr, sc, visited[sr][sc]);
                     count += 1;
                     visited[sr][sc] = true;
                     dfs(sr, sc, k, map, visited);
-                    System.out.println();
                 }
             }
             if (answer < count) {
                 answer = count;
                 minK = k;
+            }
+            if (count == 0) {
+                break;
             }
         }
         sb.append(String.format("%d %d", minK, answer));
