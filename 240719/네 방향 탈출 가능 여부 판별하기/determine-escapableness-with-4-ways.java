@@ -36,7 +36,10 @@ public class Main {
         boolean [][] visited = new boolean[N][N];
         boolean success = true;
 
-        q.add(new Pos(0, 0));
+        if (map[0][0] == 1) {
+            q.add(new Pos(0, 0));
+            visited[0][0] = true;
+        }
         while (!q.isEmpty()) {
             Pos cur = q.poll();
             if (cur.r == N - 1 && cur.c == M - 1) {
