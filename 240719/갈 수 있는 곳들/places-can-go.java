@@ -38,8 +38,8 @@ public class Main {
 
         for (int k = 0 ; k < K ; k++) {
             StringTokenizer pos = new StringTokenizer(br.readLine());
-            int r = Integer.parseInt(pos.nextToken());
-            int c = Integer.parseInt(pos.nextToken()); 
+            int r = Integer.parseInt(pos.nextToken()) - 1;
+            int c = Integer.parseInt(pos.nextToken()) - 1; 
             if (map[r][c] == 0) {
                 q.add(new Pos(r, c));
                 visited[r][c] = true;
