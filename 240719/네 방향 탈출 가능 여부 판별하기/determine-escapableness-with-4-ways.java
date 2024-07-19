@@ -33,7 +33,7 @@ public class Main {
         }
        	
         Queue<Pos> q = new ArrayDeque<>();
-        boolean [][] visited = new boolean[N][N];
+        boolean [][] visited = new boolean[N][M];
         boolean success = false;
 
         if (map[0][0] == 1) {
