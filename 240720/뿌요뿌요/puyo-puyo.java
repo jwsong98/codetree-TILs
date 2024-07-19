@@ -43,8 +43,8 @@ public class Main {
                     int count = dfs(sr, sc, id, field);
                     if (count >= 4) {
                         answer += 1;
-                        maxSize = Math.max(maxSize, count);
                     }
+                    maxSize = Math.max(maxSize, count);
                 } 
             }
         }
