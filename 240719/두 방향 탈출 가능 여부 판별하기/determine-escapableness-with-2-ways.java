@@ -20,8 +20,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         StringTokenizer nm = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(nm.nextToken()) - 1;
-        int M = Integer.parseInt(nm.nextToken()) - 1;
+        int N = Integer.parseInt(nm.nextToken());
+        int M = Integer.parseInt(nm.nextToken());
         int [][] map = new int[N][M];
 
         for (int r = 0 ; r < N ; r++) {
@@ -41,7 +41,7 @@ public class Main {
         }
         while (!stk.isEmpty()) {
             Pos cur = stk.pop();
-            if ((cur.r == N) && (cur.c == M)) {
+            if ((cur.r == N - 1) && (cur.c == M - 1)) {
                 success = true;
                 break;
             }
