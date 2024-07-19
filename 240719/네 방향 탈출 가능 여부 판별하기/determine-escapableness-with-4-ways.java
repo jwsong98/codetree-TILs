@@ -34,7 +34,7 @@ public class Main {
        	
         Queue<Pos> q = new ArrayDeque<>();
         boolean [][] visited = new boolean[N][N];
-        boolean success = true;
+        boolean success = false;
 
         if (map[0][0] == 1) {
             q.add(new Pos(0, 0));
@@ -42,7 +42,7 @@ public class Main {
         }
         while (!q.isEmpty()) {
             Pos cur = q.poll();
-            if (cur.r == N - 1 && cur.c == M - 1) {
+            if ((cur.r == N - 1) && (cur.c == M - 1)) {
                 success = true;
                 break;
             }
