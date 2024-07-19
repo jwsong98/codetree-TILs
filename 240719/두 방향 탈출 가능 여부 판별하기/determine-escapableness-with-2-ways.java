@@ -15,7 +15,7 @@ public class Main {
         }
     }
     
-    static final int[] dr = {-1, 0};
+    static final int[] dr = {+1, 0};
     static final int[] dc = {0, +1};
 
     public static void main(String[] args) throws Exception {
