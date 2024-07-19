@@ -41,8 +41,7 @@ public class Main {
         }
         while (!stk.isEmpty()) {
             Pos cur = stk.pop();
-
-            if (cur.r == N - 1 && cur.c == M - 1) {
+            if ((cur.r == N) && (cur.c == M)) {
                 success = true;
                 break;
             }
