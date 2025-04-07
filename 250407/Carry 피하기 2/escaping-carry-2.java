@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main {
-    static int answer = Integer.MAX_VALUE;
+    static int answer = Integer.MIN_VALUE;
 
     static void comb(int [] arr, int idx, int [] picked, int chosen) {
         if (chosen == 3) {
@@ -24,7 +24,7 @@ public class Main {
             for (int i = 0 ; i < 3 ; i++) {
                 sum += picked[i];
             }
-            answer = Math.min(answer, sum);
+            answer = Math.max(answer, sum);
             return;
         }
         for (int i = idx ; i < arr.length; i++) {
