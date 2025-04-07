@@ -15,7 +15,7 @@ public class Main {
                     term += (copyed[j] % 10);
                     copyed[j] /= 10;
                 }
-                if (term / 10 != 0) {
+                if (term >= 10) {
                     return;
                 }
             }
