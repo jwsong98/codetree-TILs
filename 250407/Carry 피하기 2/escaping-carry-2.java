@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main {
-    static int answer = Integer.MIN_VALUE;
+    static int answer = -1;
 
     static void comb(int [] arr, int idx, int [] picked, int chosen) {
         if (chosen == 3) {
