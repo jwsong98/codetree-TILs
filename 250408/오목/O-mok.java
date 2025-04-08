@@ -8,7 +8,7 @@ public class Main {
     static int row = 0;
     static int col = 0;
     static int dfs(int [][] arr, int sign, int r, int c, int dir, int num) {
-        if (r >= 19 || c >= 19) {
+        if (r >= 19 || c >= 19 || r < 0 || c < 0) {
             return 0;
         }
         if (arr[r][c] == sign) {
