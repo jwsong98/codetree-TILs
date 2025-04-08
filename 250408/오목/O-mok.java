@@ -11,10 +11,10 @@ public class Main {
         if (r >= 19 || c >= 19) {
             return 0;
         }
-        if (num == 5) {
-            return 1;
-        }
         if (arr[r][c] == sign) {
+            if (num == 4) {
+                return 1;
+            }
             int res = dfs(arr, sign, r + dr[dir], c + dc[dir], dir, num + 1);
             if (res == 1) {
                 if (num == 2) {
@@ -27,6 +27,7 @@ public class Main {
         }
         return 0;
     }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[][] arr = new int[19][19];
