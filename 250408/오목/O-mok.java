@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
-    static int [] dr = {0, +1 ,+1};
-    static int [] dc = {+1, 0, +1};
+    static int [] dr = {0, +1 ,+1, -1};
+    static int [] dc = {+1, 0, +1, +1};
 
     static int win = 0;
     static int row = 0;
@@ -42,8 +42,9 @@ public class Main {
             for (int c = 0; c < 19 && !finish ; c++) {
                 int sign = arr[r][c];
                 if (sign == 0) continue;
-                for (int d = 0; d < 3 ; d++) {
-                    if (dfs(arr, sign, r + dr[d], c + dc[d], d, 1) == 1) {
+
+                for (int d = 0; d < 4 ; d++) {
+                    if (dfs(arr, sign, r, c, d, 0) == 1) {
                         finish = true;
                         break;
                     }
