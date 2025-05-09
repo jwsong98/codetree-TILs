@@ -30,7 +30,7 @@ public class Main {
             int search = find(arr, i + 1, arr.length - 1, arr[i] + bar);
     
             if (search == -1) {
-                return -1;
+                return false;
             }
 
             int j = search;
